@@ -8,57 +8,51 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import gr.hua.dit.ds.entity.Customer;
+import gr.hua.dit.ds.entity.Car;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO {
+public class CarDAOImpl implements CarDAO {
 	// inject the session factory
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public List<Customer> getCustomers() {
+	public List<Car> getCars() {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		// create a query
-		Query<Customer> query = currentSession.createQuery("from Customer", Customer.class);
+		Query<Car> query = currentSession.createQuery("from Car", Car.class);
 		// execute the query and get the results list
-		List<Customer> customers = query.getResultList();
+		List<Car> cars = query.getResultList();
 		// return the results
-		return customers;
+		return cars;
 	}
 
 	@Override
-	public void saveCustomer(Customer customer) {
+	public void saveCar(Car car) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-
 		// save the customer
-		currentSession.save(customer);
-
+		currentSession.save(car);
 	}
 
 	@Override
-	public Customer getCustomer(int id) {
+	public Car getCar(String id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-
 		// get and return Customer
-		Customer customer = currentSession.get(Customer.class, id);
-		return customer;
+		Car car = currentSession.get(Car.class, id);
+		return car;
 	}
 
 	@Override
-	public void deleteCustomer(int id) {
-
+	public void deleteCar(String id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-
 		// find the customer
-		Customer customer = currentSession.get(Customer.class, id);
-
+		Car car = currentSession.get(Car.class, id);
 		// delete customer
-		currentSession.delete(customer);
+		currentSession.delete(car);
 	}
 
 }
