@@ -9,8 +9,8 @@
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/semantic.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	href="${pageContext.request.contextPath}/resources/css/semantic.min.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'/>
 	
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -22,8 +22,16 @@
 <body>
 	<nav class="ui fixed menu teal inverted navbar">
 		<a href="" class="brand item">Customers</a> 
-		<a href="${pageContext.request.contextPath}/customer/list" class="item">List All</a>
-		<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Add</a>
+		<a href="${pageContext.request.contextPath}/customer/list" class="item">List All Customers</a>
+		<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Add Customer</a>
+		<br>
+		<a href="" class="brand item">Workers</a>
+		<a href="${pageContext.request.contextPath}/worker/list" class="item">List All Workers</a>
+		<a href="${pageContext.request.contextPath}/worker/showAddForm" class="item">Add Worker</a>
+		<br>
+		<a href="" class="brand item">Cars</a>
+		<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a>
+		<a href="${pageContext.request.contextPath}/car/showAddForm" class="item">Add Car</a>
 	</nav>
 	<!-- end nav -->
 
