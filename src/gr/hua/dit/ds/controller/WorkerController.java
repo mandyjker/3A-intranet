@@ -17,10 +17,10 @@ import gr.hua.dit.ds.service.WorkerService;
 @Controller
 @RequestMapping("/worker")
 public class WorkerController {
-	
+
 	@Autowired
 	private WorkerService workerService;
-	
+
 	@GetMapping("/list")
 	public String listWorkers(Model model) {
 		List<Worker> workers = workerService.getWorkers();
@@ -28,14 +28,14 @@ public class WorkerController {
 		model.addAttribute("pageTitle", "List Workers");
 		return "list-workers";
 	}
-	
-	@GetMapping("/{id}")
+
+	@GetMapping("/getWorker/{id}")
 	public String getWorker(Model model, @PathVariable("id") int id) {
 		Worker worker = workerService.getWorker(id);
 		model.addAttribute("worker", worker);
 		return "worker-form";
 	}
-	
+
 	@GetMapping("/showAddForm")
 	public String showAddForm(Model model) {
 		Worker worker = new Worker();
@@ -43,12 +43,29 @@ public class WorkerController {
 		model.addAttribute("pageTitle", "Add Worker");
 		return "worker-form";
 	}
-	
+
 	@PostMapping("/saveWorker")
 	public String saveCustomer(@ModelAttribute("worker") Worker worker) {
 		workerService.saveWorker(worker);
 		return "redirect:/worker/list";
 	}
 
-	
+	@GetMapping("/login")
+	public String getLogin(@ModelAttribute("worker") Worker worker) {
+		return "worker-login-form";
+	}
+
+	@PostMapping("/workerLogin")
+	public String workerLogin(@ModelAttribute("worker") Worker worker) {
+		Worker tmpWorker = workerService.getWorker(worker.getId());
+		if (tmpWorker != null) {
+			if (tmpWorker.getPassword().equals(worker.getPassword())) {
+				return "list-workers";
+			} else {
+				return "worker-login-form";
+			}
+		}
+		return "worker-login-form";
+	}
+
 }
