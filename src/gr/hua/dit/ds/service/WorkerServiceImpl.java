@@ -41,4 +41,3 @@ public class WorkerServiceImpl implements WorkerService {
 	}
 
 }
-
