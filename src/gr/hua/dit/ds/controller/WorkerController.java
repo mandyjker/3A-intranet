@@ -55,17 +55,28 @@ public class WorkerController {
 		return "worker-login-form";
 	}
 
+	@GetMapping("/engineerHomePage")
+	public String getEngineerHome(@ModelAttribute("worker") Worker worker) {
+		return "home-page-engineer";
+	}
+
+	@GetMapping("/employeeHomePage")
+	public String getEmployeeHomePage(@ModelAttribute("worker") Worker worker) {
+		return "home-page-employee";
+	}
+
 	@PostMapping("/workerLogin")
 	public String workerLogin(@ModelAttribute("worker") Worker worker) {
 		Worker tmpWorker = workerService.getWorker(worker.getId());
-		if (tmpWorker != null) {
-			if (tmpWorker.getPassword().equals(worker.getPassword())) {
-				return "list-workers";
-			} else {
-				return "worker-login-form";
-			}
+		if (tmpWorker != null && tmpWorker.getPassword().equals(worker.getPassword())) {
+				String id = String.valueOf(tmpWorker.getId());
+				if (id.startsWith("10")) {
+					return "redirect:/worker/employeeHomePage";
+				} else if (id.startsWith("20")) {
+					return "redirect:/worker/engineerHomePage";
+				}
 		}
-		return "worker-login-form";
+		return "redirect:/worker/login";
 	}
 
 }
