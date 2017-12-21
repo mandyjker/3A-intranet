@@ -57,4 +57,33 @@ public class CarController {
 		carService.saveCar(car);
 		return "redirect:/car/list";
 	}
+	
+	@GetMapping("/checkCar")
+	public String checkCar(Model model) {
+		// create model attribute to get form data
+		Car car = new Car();
+		model.addAttribute("car", car);
+		// add page title
+		model.addAttribute("pageTitle", "Add Car");
+		return "car-check-form";
+	}
+	
+	@PostMapping("/updateCar")
+	public String updateCar(@ModelAttribute("car") Car car) {
+		Car tmpCar = carService.getCar(car.getLicencePlate());
+		if (car.getFuelType() == null) {
+			car.setFuelType(tmpCar.getFuelType());
+		}
+		if (car.getModel() == null) {
+			car.setModel(tmpCar.getModel());
+		}
+		//if (String.valueOf(car.getWorkerID()) == null) {
+			car.setWorkerID(tmpCar.getWorkerID());
+		//}
+		//if (String.valueOf(car.getYear()) == null) {
+			car.setYear(tmpCar.getYear());
+		//}
+		carService.updateCar(car);
+		return "redirect:/car/list";
+	}
 }

@@ -31,6 +31,12 @@ public class CarServiceImpl implements CarService {
 
 	@Override
 	@Transactional
+	public void updateCar(Car car) {
+		carDAO.updateCar(car);
+	}
+	
+	@Override
+	@Transactional
 	public Car getCar(String id) {
 		return carDAO.getCar(id);
 	}

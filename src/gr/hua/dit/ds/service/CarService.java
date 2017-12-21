@@ -8,6 +8,8 @@ public interface CarService {
 	public List<Car> getCars();
 
 	public void saveCar(Car car);
+	
+	public void updateCar(Car car);
 
 	public Car getCar(String id);
 

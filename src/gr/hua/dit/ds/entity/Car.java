@@ -13,19 +13,19 @@ public class Car {
 	@Column(name = "licence_plate")
 	private String licencePlate;
 
-	@Column(name = "model")
+	@Column(name = "c_model")
 	private String model;
 
 	@Column(name = "fuel_type")
 	private String fuelType;
 
-	@Column(name = "year")
+	@Column(name = "c_year")
 	private int year;
 
-	@Column(name = "condition")
+	@Column(name = "c_condition")
 	private String condition;
 
-	@Column(name = "reward")
+	@Column(name = "c_reward")
 	private int reward;
 
 	@Column(name = "worker_id")

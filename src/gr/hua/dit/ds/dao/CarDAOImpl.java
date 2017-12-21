@@ -35,6 +35,14 @@ public class CarDAOImpl implements CarDAO {
 		// save the customer
 		currentSession.save(car);
 	}
+	
+	@Override
+	public void updateCar(Car car) {
+		// get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		// save the customer
+		currentSession.update(car);;
+	}
 
 	@Override
 	public Car getCar(String id) {
