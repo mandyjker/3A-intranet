@@ -18,15 +18,15 @@ import gr.hua.dit.ds.service.CarService;
 @RequestMapping("/car")
 public class CarController {
 
-	// inject the customer dao
+	// inject the car dao
 	@Autowired
 	private CarService carService;
 
 	@GetMapping("/list")
-	public String listCustomers(Model model) {
-		// get customers from dao
+	public String listCars(Model model) {
+		// get cars from dao
 		List<Car> cars = carService.getCars();
-		// add the customers to the model
+		// add the cars to the model
 		model.addAttribute("cars", cars);
 		// add page title
 		model.addAttribute("pageTitle", "List Cars");
@@ -34,8 +34,8 @@ public class CarController {
 	}
 
 	@GetMapping("/{id}")
-	public String getCustomer(Model model, @PathVariable("id") String id) {
-		// get the customer
+	public String getCar(Model model, @PathVariable("id") String id) {
+		// get the car
 		Car car = carService.getCar(id);
 		model.addAttribute("car", car);
 		return "car-form";
@@ -53,7 +53,8 @@ public class CarController {
 
 	@PostMapping("/saveCar")
 	public String saveCar(@ModelAttribute("car") Car car) {
-		// save the customer using the service
+		car.setCondition("Undefined");
+		car.setReward(0);
 		carService.saveCar(car);
 		return "redirect:/car/list";
 	}
@@ -71,18 +72,13 @@ public class CarController {
 	@PostMapping("/updateCar")
 	public String updateCar(@ModelAttribute("car") Car car) {
 		Car tmpCar = carService.getCar(car.getLicencePlate());
-		if (car.getFuelType() == null) {
-			car.setFuelType(tmpCar.getFuelType());
-		}
-		if (car.getModel() == null) {
-			car.setModel(tmpCar.getModel());
-		}
-		//if (String.valueOf(car.getWorkerID()) == null) {
-			car.setWorkerID(tmpCar.getWorkerID());
-		//}
-		//if (String.valueOf(car.getYear()) == null) {
-			car.setYear(tmpCar.getYear());
-		//}
+		car.setCustomerAFM(tmpCar.getCustomerAFM());
+		car.setFuelType(tmpCar.getFuelType());
+		car.setModel(tmpCar.getModel());
+		car.setWorkerID(tmpCar.getWorkerID());
+		car.setYear(tmpCar.getYear());
+		int reward=0;
+		car.setReward(reward);
 		carService.updateCar(car);
 		return "redirect:/car/list";
 	}

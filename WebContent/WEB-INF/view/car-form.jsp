@@ -6,7 +6,7 @@
 
 	<form:form action="saveCar" modelAttribute="car" method="POST" class="ui form">
 		<div class="field">
-			<label>Licence Plate</label> 
+			<label>License Plate</label> 
 			<form:input path="licencePlate"/>
 		</div>
 		<div class="field">
@@ -22,14 +22,6 @@
 			<form:input path="year"/>
 		</div>
 		<div class="field">
-			<label>Condition</label>
-			<form:input path="condition"/>
-		</div>
-		<div class="field">
-			<label>Reward</label>
-			<form:input path="reward"/>
-		</div>
-		<div class="field">
 			<label>Worker ID</label>
 			<form:input path="workerID"/>
 		</div>
@@ -37,7 +29,7 @@
 			<label>Customer AFM</label>
 			<form:input path="customerAFM"/>
 		</div>
-		<button class="ui button" type="submit">Save</button>
+		<button class="ui button" type="submit">Submit</button>
 	</form:form>
 
 </div>

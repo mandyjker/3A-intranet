@@ -18,8 +18,8 @@
 		<div id="content">
 			<p>Welcome,  (Engineer name goes here!)</p><br>
 			<p>Here are the actions you can do:</p><br>
-			<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a>
-			<a href="${pageContext.request.contextPath}/car/checkCar" class="item">Check Car</a>
+			<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a><br>
+			<a href="${pageContext.request.contextPath}/car/checkCar" class="item">Register Car's Condition</a><br>
 		</div>
 	</div>
 </body>

@@ -18,10 +18,10 @@
 		<div id="content">
 			<p>Welcome,  (Employee Name goes here!)</p><br>
 			<p>Here are the actions you can do:</p><br>
-			<a href="${pageContext.request.contextPath}/customer/list" class="item">List All Customers</a>
-			<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Add Customer</a>
-			<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a>
-			<a href="${pageContext.request.contextPath}/car/showAddForm" class="item">Add Car</a>
+			<a href="${pageContext.request.contextPath}/customer/list" class="item">List All Customers</a><br>
+			<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Register new customer</a><br>
+			<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a><br>
+			<a href="${pageContext.request.contextPath}/car/showAddForm" class="item">Register car</a><br>
 		</div>
 	</div>
 </body>

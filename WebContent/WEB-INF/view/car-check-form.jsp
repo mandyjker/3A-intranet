@@ -10,18 +10,10 @@
 			<form:input path="licencePlate"/>
 		</div>
 		<div class="field">
-			<label>Customer AFM</label>
-			<form:input path="customerAFM"/>
-		</div>
-		<div class="field">
 			<label>Condition</label>
 			<form:input path="condition" value="Not available yet"/>
 		</div>
-		<div class="field">
-			<label>Reward</label>
-			<form:input path="reward" value="Not available yet"/>
-		</div>
-		<button class="ui button" type="submit">Save</button>
+		<button class="ui button" type="submit">Submit</button>
 	</form:form>
 
 </div>

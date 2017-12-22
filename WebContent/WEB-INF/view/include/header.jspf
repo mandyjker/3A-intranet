@@ -20,18 +20,33 @@
 
 </head>
 <body>
-	<nav class="ui top menu teal inverted navbar">
-		<!-- <a href="" class="brand item">Customers</a>  -->
-		<a href="${pageContext.request.contextPath}/customer/list" class="item">List All Customers</a>
-		<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Add Customer</a>
-		<!-- <a href="" class="brand item">Workers</a> -->
-		<a href="${pageContext.request.contextPath}/worker/list" class="item">List All Workers</a>
-		<a href="${pageContext.request.contextPath}/worker/showAddForm" class="item">Add Worker</a>
-		<a href="${pageContext.request.contextPath}/worker/login" class="item">Login for workers</a>
-		<!-- <a href="" class="brand item">Cars</a> -->
-		<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a>
-		<a href="${pageContext.request.contextPath}/car/showAddForm" class="item">Add Car</a>
-	</nav>
-	<!-- end nav -->
+	<div class="ui top teal inverted menu">
+		<div class="ui container">
+			<a href="" class="header item">Car Recycling Inc.</a>
+			<a href="" class="item">Home</a>
+			<div class="ui simple dropdown item">Customers
+				<div class="menu">
+					<a href="/hua-ds-project/customer/list" class="item">List All Customers</a>
+					<a href="/hua-ds-project/customer/showAddForm" class="item">Add Customer</a>
+				</div>
+			</div>
+			<div class="ui simple dropdown item">Workers
+				<div class="menu">
+					<a href="/hua-ds-project/worker/list" class="item">List All Workers</a>
+					<a href="/hua-ds-project/worker/showAddForm" class="item">Add Worker</a>
+					<a href="/hua-ds-project/worker/login" class="item">Login for workers</a>
+					<a href="/hua-ds-project/worker/employeeHomePage" class="item">Employee Home Page</a>
+					<a href="/hua-ds-project/worker/engineerHomePage" class="item">Engineer Home Page</a>
+				</div>
+			</div>
+			<div class="ui simple dropdown item">Cars
+				<div class="menu">
+					<a href="/hua-ds-project/car/list" class="item">List All Cars</a>
+					<a href="/hua-ds-project/car/showAddForm" class="item">Register Car</a>
+					<a href="/hua-ds-project/car/checkCar" class="item">Check Car</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="ui container">
