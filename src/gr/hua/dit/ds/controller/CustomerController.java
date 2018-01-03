@@ -37,7 +37,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/{id}")
-	public String getCustomer(Model model, @PathVariable("id") int id) {
+	public String getCustomer(Model model, @PathVariable("id") String id) {
 		// get the customer
 		Customer customer = customerService.getCustomer(id);
 		
@@ -63,5 +63,32 @@ public class CustomerController {
 		customerService.saveCustomer(customer);
 		
 		return "redirect:/customer/list";
+	}
+	
+	@PostMapping("/updateCustomer")
+	public String updateCustomer(@ModelAttribute("customer") Customer customer) {
+		// save the customer using the service
+		customerService.updateCustomer(customer);
+		
+		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("/login")
+	public String getLogin(@ModelAttribute("customer") Customer customer) {
+		return "customer-login-form";
+	}
+	
+	@GetMapping("/signin")
+	public String getSignIn(@ModelAttribute("customer") Customer customer) {
+		return "customer-sign-in-form";
+	}
+	
+	@PostMapping("/customerLogin")
+	public String customerLogin(@ModelAttribute("customer") Customer customer) {
+		Customer tmpCustomer = customerService.getCustomer(customer.getUsername());
+		if (tmpCustomer != null && tmpCustomer.getPassword().equals(customer.getPassword())) {
+				return "redirect:/customer/list";
+		}
+		return "redirect:/customer/login";
 	}
 }

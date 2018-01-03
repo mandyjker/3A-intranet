@@ -2,20 +2,12 @@
 
 <div class="ui segment">
 
-	<h3>Add a Customer</h3>
+	<h3>Register a new Customer</h3>
 
-	<form:form action="saveCustomer" modelAttribute="customer" method="POST" class="ui form">
+	<form:form action="updateCustomer" modelAttribute="customer" method="POST" class="ui form">
 		<div class="field">
 			<label>AFM</label> 
 			<form:input path="afm"/>
-		</div>
-		<div class="field">
-			<label>Username</label> 
-			<form:input path="username"/>
-		</div>
-		<div class="field">
-			<label>Password</label> 
-			<form:input path="password"/>
 		</div>
 		<div class="field">
 			<label>First Name</label> 
@@ -29,7 +21,7 @@
 			<label>Worker ID</label>
 			<form:input path="workerID"/>
 		</div>
-		<button class="ui button" type="submit">Save</button>
+		<button class="ui button" type="submit">Submit</button>
 	</form:form>
 
 </div>

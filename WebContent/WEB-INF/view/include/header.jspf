@@ -28,6 +28,8 @@
 				<div class="menu">
 					<a href="/hua-ds-project/customer/list" class="item">List All Customers</a>
 					<a href="/hua-ds-project/customer/showAddForm" class="item">Add Customer</a>
+					<a href="/hua-ds-project/customer/login" class="item">Login for Customers</a>
+					<a href="/hua-ds-project/customer/signin" class="item">Sign In for Customers</a>
 				</div>
 			</div>
 			<div class="ui simple dropdown item">Workers
