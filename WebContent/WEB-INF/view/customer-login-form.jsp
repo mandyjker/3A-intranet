@@ -7,11 +7,11 @@
 	<form:form action="customerLogin" modelAttribute="customer" method="POST" class="ui form">
 		<div class="field">
 			<label>Username</label> 
-			<form:input path="username"/>
+			<form:input name="username" path="username"/>
 		</div>
 		<div class="field">
 			<label>Password</label> 
-			<form:input path="password"/>
+			<form:input type="password" name="password" path="password"/>
 		</div>
 		<button class="ui button" type="submit">Login</button>
 	</form:form>

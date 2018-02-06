@@ -4,18 +4,21 @@
 
 	<h3>Login for worker</h3>
 
-	<form:form action="workerLogin" modelAttribute="worker" method="POST" class="ui form">
+	<form:form action="workerLogin" method="POST" class="ui form">
+		<c:if test="${param.error != null}">
+                <i>Sorry! Invalid username/password!</i>
+        </c:if>
 		<div class="field">
 			<label>Worker ID</label> 
-			<form:input path="id"/>
+			<form:input type="text" path="id"/>
 		</div>
 		<div class="field">
 			<label>Username</label> 
-			<form:input path="username"/>
+			<form:input type="text" name="username" path="username"/>
 		</div>
 		<div class="field">
 			<label>Password</label> 
-			<form:input path="password"/>
+			<form:input type="password" name="password" path="password"/>
 		</div>
 		<button class="ui button" type="submit">Login</button>
 	</form:form>
