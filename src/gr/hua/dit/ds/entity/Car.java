@@ -33,7 +33,7 @@ public class Car {
 
 	@Column(name = "customer_afm")
 	private int customerAFM;
-
+	
 	public String getLicencePlate() {
 		return licencePlate;
 	}
