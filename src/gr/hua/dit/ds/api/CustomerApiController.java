@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import gr.hua.dit.ds.entity.Car;
-import gr.hua.dit.ds.entity.CarList;
 import gr.hua.dit.ds.entity.Customer;
 import gr.hua.dit.ds.entity.CustomerList;
 import gr.hua.dit.ds.service.CustomerService;
@@ -31,12 +29,12 @@ public class CustomerApiController {
 	// get list of customers
 	@RequestMapping(value = "/all", method = RequestMethod.GET, produces = { "application/json", "application/xml" })
 	public CustomerList getListCustomers() {
-
+		System.out.println("Before making list");
 		List<Customer> customers = customerService.getCustomers();
 		System.out.println("List of customers: " + customers);
 		this.customerList.setCustomerList(customers);
 		return this.customerList;
-	}
+	}	
 
 	// save customer
 	@RequestMapping(value = "/jsonaddcustomer", method = RequestMethod.POST, produces = { "application/json",
@@ -47,17 +45,23 @@ public class CustomerApiController {
 	}
 
 	// update customer
-	@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, produces = { "application/json",
-			"application/xml" })
-	public Customer createCustomer(@RequestParam("afm") String afm,
-			@RequestParam("worker_id") String worker_id) {
+	@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, produces = { "application/json", "application/xml" })
+	public Customer updateCustomer(@RequestParam("afm") int afm, @RequestParam("worker_id") int worker_id) {
 		Customer customer = new Customer();
-		customerService.saveCustomer(customer);
+		customer.setAfm(afm);
+		customer.setWorkerID(worker_id);
+		Customer temp = customerService.getCustomer(afm);
+		customer.setFirstName(temp.getFirstName());
+		customer.setLastName(temp.getLastName());
+		customer.setUsername(temp.getUsername());
+		customer.setPassword(temp.getPassword());
+		customerService.updateCustomer(customer);
+		System.out.println(customer.toString());
 		return customer;
 	}
 
 	// get customer
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { "application/json", "application/xml" })
+	@RequestMapping(value = "/{afm}", method = RequestMethod.GET, produces = { "application/json", "application/xml" })
 	public Customer getCustomer(@PathVariable("afm") int afm) {
 
 		Customer customer = customerService.getCustomer(afm);
@@ -67,7 +71,7 @@ public class CustomerApiController {
 	}
 
 	// delete customer
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE, produces = { "application/json",
+	@RequestMapping(value = "/delete/{afm}", method = RequestMethod.DELETE, produces = { "application/json",
 			"application/xml" })
 	public ResponseEntity deleteCustomer(@PathVariable("afm") int afm) {
 		customerService.deleteCustomer(afm);

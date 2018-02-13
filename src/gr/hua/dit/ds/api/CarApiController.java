@@ -50,6 +50,15 @@ public class CarApiController {
 	public Car createCar(@RequestParam("licence_plate") String licence_plate,
 			@RequestParam("customer_afm") String customer_afm) {
 		Car car = new Car();
+		car.setLicencePlate(licence_plate);
+		car.setCustomerAFM(Integer.valueOf(customer_afm));
+		Car temp = carService.getCar(licence_plate);
+		car.setModel(temp.getModel());
+		car.setCondition(temp.getCondition());
+		car.setFuelType(temp.getFuelType());
+		car.setReward(temp.getReward());
+		car.setYear(temp.getYear());
+		car.setWorkerID(temp.getWorkerID());
 		carService.saveCar(car);
 		return car;
 	}
