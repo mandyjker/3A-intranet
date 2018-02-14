@@ -22,7 +22,7 @@
 <body>
 	<div class="ui top teal inverted menu">
 		<div class="ui container">
-			<a href="" class="header item">Car Recycling Inc.</a>
+			<a href="" class="header item">3A Car Recycling Inc.</a>
 			<a href="${pageContext.request.contextPath}/worker/login" class="item">Login</a>
 			<div class="ui simple dropdown item">Employee
 				<div class="menu">
