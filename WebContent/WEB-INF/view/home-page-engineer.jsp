@@ -16,7 +16,7 @@
 
 	<div id="container">
 		<div id="content">
-			<p>Welcome,  (Engineer name goes here!)</p><br>
+			<p>Welcome!</p><br>
 			<p>Here are the actions you can do:</p><br>
 			<a href="${pageContext.request.contextPath}/car/list" class="item">List All Cars</a><br>
 			<a href="${pageContext.request.contextPath}/car/checkCar" class="item">Register Car's Condition</a><br>

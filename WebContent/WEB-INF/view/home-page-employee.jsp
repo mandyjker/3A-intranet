@@ -16,7 +16,7 @@
 
 	<div id="container">
 		<div id="content">
-			<p>Welcome,  (Employee Name goes here!)</p><br>
+			<p>Welcome!</p><br>
 			<p>Here are the actions you can do:</p><br>
 			<a href="${pageContext.request.contextPath}/customer/list" class="item">List All Customers</a><br>
 			<a href="${pageContext.request.contextPath}/customer/showAddForm" class="item">Register new customer</a><br>

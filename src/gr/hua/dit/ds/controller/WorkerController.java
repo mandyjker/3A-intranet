@@ -68,12 +68,15 @@ public class WorkerController {
 	@PostMapping("/workerLogin")
 	public String workerLogin(@ModelAttribute("worker") Worker worker) {
 		Worker tmpWorker = workerService.getWorker(worker.getId());
+		System.out.println("Login with id: " +tmpWorker.getId());
 		if (tmpWorker != null && tmpWorker.getPassword().equals(worker.getPassword())) {
 				String id = String.valueOf(tmpWorker.getId());
 				if (id.startsWith("10")) {
 					return "redirect:/worker/employeeHomePage";
 				} else if (id.startsWith("20")) {
 					return "redirect:/worker/engineerHomePage";
+				} else {
+					return "redirect:/worker/login";
 				}
 		}
 		return "redirect:/worker/login";

@@ -4,18 +4,18 @@
 
 	<h3>Login for worker</h3>
 
-	<form:form action="workerLogin" method="POST" class="ui form">
+	<form:form action="workerLogin" modelAttribute="worker" method="POST" class="ui form">
 		<div class="field">
 			<label>Worker ID</label> 
-			<input type="text" path="id"/>
+			<form:input path="id"/>
 		</div>
 		<div class="field">
 			<label>Username</label> 
-			<input type="text" name="username" path="username"/>
+			<form:input path="username"/>
 		</div>
 		<div class="field">
 			<label>Password</label> 
-			<input type="password" name="password" path="password"/>
+			<form:input path="password"/>
 		</div>
 		<button class="ui button" type="submit">Login</button>
 	</form:form>
