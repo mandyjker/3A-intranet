@@ -77,8 +77,28 @@ public class CarController {
 		car.setModel(tmpCar.getModel());
 		car.setWorkerID(tmpCar.getWorkerID());
 		car.setYear(tmpCar.getYear());
-		int reward=0;
+		//calculate reward
+		int years = 2018 - tmpCar.getYear();
+		int reward;
+		if ( years >=0 && years <=5) {
+			reward = 800;
+		} else if ( years >5 && years <=10 ) {
+			reward = 1000;
+		} else if ( years >10 && years <=20 ) {
+			reward = 1200;
+		} else {
+			reward = 1000;
+		}
+		String condition = car.getCondition();
+		if ( condition.startsWith("good") ) {
+			reward = (int) Math.round(reward*1.0);
+		} else if ( condition.startsWith("average") ) {
+			reward = (int) Math.round(reward*0.8);
+		} else {
+			reward = (int) Math.round(reward*0.5);
+		}
 		car.setReward(reward);
+		//save car to database
 		carService.updateCar(car);
 		return "redirect:/car/list";
 	}

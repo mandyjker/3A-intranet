@@ -11,7 +11,7 @@
 		</div>
 		<div class="field">
 			<label>Condition</label>
-			<form:input path="condition" value="Not available yet"/>
+			<form:input path="condition" value="average"/>
 		</div>
 		<button class="ui button" type="submit">Submit</button>
 	</form:form>

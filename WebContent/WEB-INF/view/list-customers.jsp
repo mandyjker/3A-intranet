@@ -10,7 +10,7 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>List of Customers</h2>
 		</div>
 	</div>
 
@@ -19,23 +19,23 @@
 			<!--  add our html table here -->
 			<table>
 				<tr>
-					<th>AFM</th>
-					<th>Username</th>
-					<th>Password</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>AFM___________</th>
+					<th>Username________</th>
+					<th>Password________</th>
+					<th>First Name______</th>
+					<th>Last Name_______</th>
 					<th>Worker ID</th>
 				</tr>
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCustomer" items="${customers}">
 
 					<tr>
-						<td>${tempCustomer.afm}</td>
-						<td>${tempCustomer.username}</td>
-						<td>${tempCustomer.password}</td>
-						<td>${tempCustomer.firstName}</td>
-						<td>${tempCustomer.lastName}</td>
-						<td>${tempCustomer.workerID}</td>
+						<td> ${tempCustomer.afm} </td>
+						<td> ${tempCustomer.username} </td>
+						<td> ${tempCustomer.password} </td>
+						<td> ${tempCustomer.firstName} </td>
+						<td> ${tempCustomer.lastName} </td>
+						<td> ${tempCustomer.workerID} </td>
 					</tr>
 				</c:forEach>
 			</table>

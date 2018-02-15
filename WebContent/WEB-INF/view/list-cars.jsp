@@ -10,7 +10,7 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>List of Cars</h2>
 		</div>
 	</div>
 
@@ -19,27 +19,27 @@
 			<!--  add our html table here -->
 			<table>
 				<tr>
-					<th>Licence Plate</th>
-					<th>Model</th>
-					<th>Fuel Type</th>
-					<th>Year</th>
-					<th>Condition</th>
-					<th>Reward</th>
-					<th>Worker ID</th>
+					<th>Licence Plate__</th>
+					<th>Model__________</th>
+					<th>Fuel Type______</th>
+					<th>Year___________</th>
+					<th>Condition______</th>
+					<th>Reward_________</th>
+					<th>Worker_ID______</th>
 					<th>Customer AFM</th>
 				</tr>
 				<!-- loop over and print our customers -->
 				<c:forEach var="tempCar" items="${cars}">
 
 					<tr>
-						<td>${tempCar.licencePlate}</td>
-						<td>${tempCar.model}</td>
-						<td>${tempCar.fuelType}</td>
-						<td>${tempCar.year}</td>
-						<td>${tempCar.condition}</td>
-						<td>${tempCar.reward}</td>
-						<td>${tempCar.workerID}</td>
-						<td>${tempCar.customerAFM}</td>
+						<td> ${tempCar.licencePlate} </td>
+						<td> ${tempCar.model} </td>
+						<td> ${tempCar.fuelType} </td>
+						<td> ${tempCar.year} </td>
+						<td> ${tempCar.condition} </td>
+						<td> ${tempCar.reward} </td>
+						<td> ${tempCar.workerID} </td>
+						<td> ${tempCar.customerAFM} </td>
 					</tr>
 				</c:forEach>
 			</table>
