@@ -32,7 +32,7 @@ public class CarDAOImpl implements CarDAO {
 	public void saveCar(Car car) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// save the customer
+		// save the car
 		currentSession.save(car);
 	}
 	
@@ -40,7 +40,7 @@ public class CarDAOImpl implements CarDAO {
 	public void updateCar(Car car) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// save the customer
+		// update the car
 		currentSession.update(car);;
 	}
 
@@ -48,7 +48,7 @@ public class CarDAOImpl implements CarDAO {
 	public Car getCar(String id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// get and return Customer
+		// get and return Car
 		Car car = currentSession.get(Car.class, id);
 		return car;
 	}
@@ -57,9 +57,9 @@ public class CarDAOImpl implements CarDAO {
 	public void deleteCar(String id) {
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
-		// find the customer
+		// find the car
 		Car car = currentSession.get(Car.class, id);
-		// delete customer
+		// delete car
 		currentSession.delete(car);
 	}
 

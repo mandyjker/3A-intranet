@@ -78,7 +78,15 @@ public class CarController {
 		car.setWorkerID(tmpCar.getWorkerID());
 		car.setYear(tmpCar.getYear());
 		//calculate reward
-		int years = 2018 - tmpCar.getYear();
+		int reward = this.calculateReward(car);
+		car.setReward(reward);
+		//save car to database
+		carService.updateCar(car);
+		return "redirect:/car/list";
+	}
+	
+	public int calculateReward(Car car) {
+		int years = 2018 - car.getYear();
 		int reward;
 		if ( years >=0 && years <=5) {
 			reward = 800;
@@ -97,9 +105,7 @@ public class CarController {
 		} else {
 			reward = (int) Math.round(reward*0.5);
 		}
-		car.setReward(reward);
-		//save car to database
-		carService.updateCar(car);
-		return "redirect:/car/list";
+		return reward;
 	}
+	
 }

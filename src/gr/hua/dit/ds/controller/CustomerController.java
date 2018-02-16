@@ -59,6 +59,7 @@ public class CustomerController {
 	
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
+		System.out.println("Save customer: " +customer.toString());
 		// save the customer using the service
 		customerService.saveCustomer(customer);
 		
